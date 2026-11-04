@@ -1,0 +1,196 @@
+/* ===========================================================
+   F1 Explorer — estilos propios (complementan Bootstrap)
+   Tema "telemetría": fondo oscuro, acento rojo F1.
+   =========================================================== */
+:root{
+  --bg:#0E0E14;
+  --surface:#16161F;
+  --surface-2:#1E1E2A;
+  --line:#2A2A38;
+  --fg:#F5F6FA;
+  --muted:#9A9AAC;
+  --red:#E10600;
+  --red-dim:#B00500;
+  --teal:#00D2BE;
+  --font-display:'Rajdhani', system-ui, sans-serif;
+  --font-body:'Titillium Web', system-ui, sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--font-body);
+  padding-top:70px;           /* deja espacio a la navbar fija */
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+.app-main{flex:1 1 auto; padding-block:24px}
+
+/* ---------- Navbar ---------- */
+.app-navbar{
+  background:linear-gradient(180deg,#14141D,#101017);
+  border-bottom:1px solid var(--line);
+}
+.navbar-brand{font-family:var(--font-display); font-weight:700; letter-spacing:.5px; font-size:1.25rem}
+.navbar-brand b{color:var(--red)}
+.brand-mark{
+  width:30px;height:30px;border-radius:7px;background:var(--red);
+  display:grid;place-items:center;color:#fff;font-weight:700;font-size:.9rem;
+  box-shadow:0 0 0 1px #ff4b45 inset;
+}
+.app-navbar .nav-link{
+  font-family:var(--font-display); font-weight:600; text-transform:uppercase;
+  letter-spacing:.4px; font-size:.85rem; color:var(--muted);
+}
+.app-navbar .nav-link:hover,
+.app-navbar .nav-link.active{color:#fff}
+.app-navbar .nav-link.active{border-bottom:2px solid var(--red)}
+
+/* ---------- Tipografía / utilidades ---------- */
+.eyebrow{font-family:var(--font-display); text-transform:uppercase; letter-spacing:2px;
+  font-size:.75rem; color:var(--red); font-weight:600; margin-bottom:.4rem}
+.view-title{font-family:var(--font-display); font-weight:700; letter-spacing:.3px}
+.hero-title{font-family:var(--font-display); font-weight:700; line-height:1.03;
+  letter-spacing:.5px; font-size:clamp(2rem,6vw,3.4rem); margin-bottom:.6rem}
+.hero-lead{max-width:52ch; color:#D7D8E2; font-size:1.05rem}
+.form-label-mini{font-family:var(--font-display); text-transform:uppercase; letter-spacing:1px;
+  font-size:.75rem; color:var(--muted); font-weight:600; margin-bottom:.4rem}
+.crumbs{font-family:var(--font-display); text-transform:uppercase; letter-spacing:1px;
+  font-size:.75rem; color:var(--muted); margin-bottom:.6rem}
+.crumbs b{color:#fff}
+.count-badge{font-family:var(--font-display); text-transform:uppercase; letter-spacing:1px;
+  font-size:.8rem; color:var(--muted)}
+
+/* ---------- Hero ---------- */
+.hero{
+  border:1px solid var(--line);
+  background:
+    radial-gradient(120% 120% at 85% 0%, rgba(225,6,0,.28), transparent 55%),
+    repeating-linear-gradient(115deg, transparent 0 22px, rgba(255,255,255,.015) 22px 23px),
+    var(--surface);
+}
+.stat{background:var(--surface-2); border:1px solid var(--line); border-radius:12px; padding:14px; height:100%}
+.stat-n{font-family:var(--font-display); font-weight:700; font-size:1.7rem; line-height:1; font-variant-numeric:tabular-nums}
+.stat-l{font-size:.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-top:6px}
+
+/* ---------- Botones ---------- */
+.btn-f1{
+  --bs-btn-color:#fff; --bs-btn-bg:var(--red); --bs-btn-border-color:var(--red);
+  --bs-btn-hover-color:#fff; --bs-btn-hover-bg:var(--red-dim); --bs-btn-hover-border-color:var(--red-dim);
+  --bs-btn-active-bg:var(--red-dim); --bs-btn-active-border-color:var(--red-dim);
+  font-family:var(--font-display); font-weight:600; letter-spacing:.5px; text-transform:uppercase;
+}
+.btn-outline-light{font-family:var(--font-display); font-weight:600; letter-spacing:.5px; text-transform:uppercase}
+.btn-chip{
+  --bs-btn-color:var(--muted); --bs-btn-bg:var(--surface); --bs-btn-border-color:var(--line);
+  --bs-btn-hover-color:#fff; --bs-btn-hover-bg:var(--surface-2); --bs-btn-hover-border-color:#3a3a4c;
+  font-family:var(--font-display); font-weight:600; letter-spacing:.4px; text-transform:uppercase; font-size:.85rem;
+  border-radius:999px !important; margin:0 .4rem .4rem 0;
+}
+.btn-check:checked + .btn-chip{
+  color:#fff; background:rgba(225,6,0,.16); border-color:var(--red);
+}
+
+/* ---------- Formularios ---------- */
+.form-control, .form-select, .input-group-text{
+  background:var(--surface); border-color:var(--line); color:var(--fg);
+}
+.form-control:focus, .form-select:focus{
+  background:var(--surface); color:var(--fg); border-color:var(--red);
+  box-shadow:0 0 0 .2rem rgba(225,6,0,.2);
+}
+.form-control::placeholder{color:#6d6d7c}
+.input-group-text{color:var(--muted)}
+
+/* ---------- Tarjetas de resultados ---------- */
+.card-f1{
+  background:var(--surface-2); border:1px solid var(--line); border-radius:12px;
+  padding:16px; height:100%; cursor:pointer; transition:border-color .12s, transform .05s;
+  color:inherit; text-align:left; display:flex; flex-direction:column; gap:3px;
+}
+.card-f1 .num, .card-f1 .title, .card-f1 .sub, .card-f1 .go{display:block}
+.card-f1:hover{border-color:var(--red)}
+.card-f1:active{transform:translateY(1px)}
+.card-f1:focus-visible{outline:2px solid var(--teal); outline-offset:2px}
+.card-f1 .num{font-family:var(--font-display); font-weight:700; font-size:.8rem; color:var(--red); letter-spacing:1px}
+.card-f1 .title{font-family:var(--font-display); font-weight:600; font-size:1.15rem; line-height:1.1}
+.card-f1 .sub{color:var(--muted); font-size:.85rem}
+.card-f1 .go{margin-top:8px; font-family:var(--font-display); font-size:.72rem;
+  text-transform:uppercase; letter-spacing:1px; color:var(--teal)}
+
+/* ---------- Detalle ---------- */
+.detail-hero{display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap;
+  background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:20px; margin-bottom:16px}
+.avatar{width:84px;height:84px;border-radius:12px;flex:0 0 auto;display:grid;place-items:center;
+  font-family:var(--font-display); font-weight:700; font-size:1.9rem; color:#fff;
+  background:linear-gradient(145deg, var(--red), #6d0400)}
+.detail-hero .big-num{margin-left:auto; font-family:var(--font-display); font-weight:700;
+  font-size:3rem; color:var(--line); line-height:1; font-variant-numeric:tabular-nums}
+.tag{display:inline-block; font-family:var(--font-display); font-size:.7rem; letter-spacing:1px;
+  text-transform:uppercase; color:var(--teal); border:1px solid var(--teal); border-radius:999px; padding:3px 9px; margin-top:6px}
+.specs{list-style:none; margin:0; padding:0; display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px;
+  background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden}
+.specs li{background:var(--surface); padding:14px 16px}
+.specs .k{font-size:.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;
+  font-family:var(--font-display); font-weight:600}
+.specs .v{font-size:1.05rem; margin-top:3px; font-variant-numeric:tabular-nums}
+.mini-table{width:100%; border-collapse:collapse; margin-top:16px}
+.mini-table th, .mini-table td{padding:8px 10px; border-bottom:1px solid var(--line); text-align:left; font-size:.9rem}
+.mini-table th{font-family:var(--font-display); text-transform:uppercase; letter-spacing:.5px;
+  font-size:.72rem; color:var(--muted)}
+.mini-table td.pos{font-family:var(--font-display); font-weight:700; color:var(--red)}
+
+/* ---------- Calendario ---------- */
+.race-item{display:flex; align-items:center; gap:14px; cursor:pointer; text-align:left;
+  background:var(--surface); border:1px solid var(--line); color:inherit;
+  border-radius:12px; padding:14px 16px; margin-bottom:10px; transition:border-color .12s}
+.race-item:hover{border-color:var(--red)}
+.race-item:focus-visible{outline:2px solid var(--teal); outline-offset:2px}
+.race-item .rnd{font-family:var(--font-display); font-weight:700; font-size:1.3rem; color:var(--red);
+  width:36px; text-align:center; flex:0 0 auto; font-variant-numeric:tabular-nums}
+.race-item .info{flex:1; min-width:0}
+.race-item .gp{font-family:var(--font-display); font-weight:600; font-size:1.05rem}
+.race-item .where{color:var(--muted); font-size:.82rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.race-item .date{font-family:var(--font-display); font-weight:600; font-size:.82rem; text-align:right;
+  flex:0 0 auto; font-variant-numeric:tabular-nums}
+
+/* ---------- Estados (loading / error / vacío) ---------- */
+.state-box{text-align:center; padding:48px 16px; color:var(--muted)}
+.spinner-border.text-f1{color:var(--red)}
+
+/* ---------- Footer ---------- */
+.app-footer{border-top:1px solid var(--line); background:#0C0C12; color:var(--muted);
+  font-size:.8rem; padding:16px 0}
+.app-footer a{color:var(--teal); text-decoration:none}
+
+/* ===========================================================
+   RESPONSIVIDAD — 3 breakpoints (móvil, tablet, escritorio)
+   =========================================================== */
+
+/* Móvil (≤575px): compactar hero, apilar, ocultar sub-datos largos */
+@media (max-width: 575.98px){
+  body{padding-top:62px}
+  .hero{padding:1.5rem !important}
+  .hero-lead{font-size:.95rem}
+  .stat-n{font-size:1.3rem}
+  .stat-l{font-size:.62rem}
+  .detail-hero .big-num{font-size:2.1rem}
+  .avatar{width:64px;height:64px;font-size:1.4rem}
+  .race-item .where{font-size:.75rem}
+}
+
+/* Tablet (576–991px): rejilla intermedia y tipografía media */
+@media (min-width: 576px) and (max-width: 991.98px){
+  .hero-title{font-size:2.6rem}
+  .detail-hero{gap:14px}
+}
+
+/* Escritorio (≥992px): hero amplio y layout holgado */
+@media (min-width: 992px){
+  .app-main{padding-block:32px}
+  .hero{padding:3rem !important}
+}
+
+@media (prefers-reduced-motion: reduce){*{transition:none !important}}
